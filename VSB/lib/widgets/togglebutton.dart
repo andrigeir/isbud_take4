@@ -31,10 +31,8 @@ class _MyToggleButtonState extends State<MyToggleButton> {
             children: [
               CustomToggleButtons(
                   children: <Widget>[
-                    ToggleButtonItem(_title[0], _color[0]),
-                    ToggleButtonItem(_title[1], _color[1]),
-                    ToggleButtonItem(_title[2], _color[2]),
-                    ToggleButtonItem(_title[3], _color[3]),
+                    for (int a = 0; a < _color.length; a++)
+                      ToggleButtonItem(_title[a], _color[a]),
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
