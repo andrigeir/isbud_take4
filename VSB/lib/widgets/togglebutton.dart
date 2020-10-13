@@ -19,6 +19,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
         isSelected: _isSelected,
         onPressed: (int index) {
           setState(() {
+            _isSelected = [false, false, false];
             _isSelected[index] = !_isSelected[index];
           });
         },
