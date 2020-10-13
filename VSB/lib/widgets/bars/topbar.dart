@@ -35,7 +35,7 @@ List<Widget> _getStripes(context, double height) {
       child: Container(color: Theme.of(context).primaryColor),
     ));
   }
-  ;
+
   stripes.add(Expanded(
     flex: 1, // 20%
     child: Container(color: Theme.of(context).accentColor),
