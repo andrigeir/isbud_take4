@@ -1,4 +1,5 @@
 import 'package:VSB/widgets/product_image_widget.dart';
+import 'package:VSB/widgets/togglebutton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,14 +14,8 @@ class BragdarefurScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
-    List<String> _currentProduct = [
-      '${loadedProduct.id}${DateTime.now().toIso8601String()}',
-      loadedProduct.title,
-      loadedProduct.description,
-      loadedProduct.price.toString(),
-      loadedProduct.imageUrl,
-      'small'
-    ];
+    IceSize _size = IceSize.kids;
+    List<bool> selection = List.generate(3, (_) => false);
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -28,18 +23,34 @@ class BragdarefurScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            BackAppBar(_currentProduct[5]),
+            BackAppBar(loadedProduct.title),
             Padding(
               padding: EdgeInsets.all(5),
             ),
             ProductImage(loadedProduct.imageUrl),
-            FloatingActionButton.extended(
-              label: Text(_currentProduct[3]),
-              onPressed: () {},
-            )
+            MyToggleButton(),
           ],
         ),
       ),
     );
+  }
+}
+
+enum IceSize { kids, small, medium, large }
+
+extension SizeExtension on IceSize {
+  String get sizetext {
+    switch (this) {
+      case IceSize.kids:
+        return 'Kids';
+      case IceSize.small:
+        return 'Small';
+      case IceSize.medium:
+        return 'Medium';
+      case IceSize.large:
+        return 'Large';
+      default:
+        return 'Small';
+    }
   }
 }
