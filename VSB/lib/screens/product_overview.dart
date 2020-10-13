@@ -10,8 +10,6 @@ import '../widgets/grids/products_grid.dart';
 class ProductOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _productData = Provider.of<Products>(context);
-    final _products = _productData.items;
     return Scaffold(
       appBar: TopBar(),
       body: ProductsGrid(),
