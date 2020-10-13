@@ -15,6 +15,9 @@ class BragdarefurScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
+    IceSize _size = IceSize.kids;
+    List<bool> selection = List.generate(4, (_) => false);
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
