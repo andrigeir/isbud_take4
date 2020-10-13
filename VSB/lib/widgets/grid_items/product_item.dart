@@ -1,3 +1,4 @@
+import 'package:VSB/screens/bragdarefur_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,10 +13,10 @@ class ProductItem extends StatelessWidget {
       child: GridTile(
         child: GestureDetector(
           onTap: () {
-            // Navigator.of(context).pushNamed(
-            //   ProductDetailScreen.routeName,
-            //   arguments: product.id,
-            // );
+            Navigator.of(context).pushNamed(
+              BragdarefurScreen.routeName,
+              arguments: product.id,
+            );
           },
           child: Image.network(
             product.imageUrl,
