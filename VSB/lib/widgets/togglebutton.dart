@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
+import 'toggle_button_item.dart';
 
 class MyToggleButton extends StatefulWidget {
+  final int number;
+
+  const MyToggleButton({Key key, this.number}) : super(key: key);
+
   @override
   _MyToggleButtonState createState() => _MyToggleButtonState();
 }
 
 class _MyToggleButtonState extends State<MyToggleButton> {
-  List<bool> _isSelected = [false, false, false, false];
+  static int i = 4;
+  List<bool> _isSelected = List.generate(i, (_) => false);
+  List<Color> _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
+  List<String> _title = ["Kids", "Small", "Medium", "FuckOff"];
 
-  List<Color> _color = [
-    Colors.white.withOpacity(0.5),
-    Colors.white.withOpacity(0.5),
-    Colors.white.withOpacity(0.5),
-    Colors.white.withOpacity(0.5),
-  ];
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,54 +31,23 @@ class _MyToggleButtonState extends State<MyToggleButton> {
             children: [
               CustomToggleButtons(
                   children: <Widget>[
-                    Container(
-                      width: 90,
-                      child: FloatingActionButton.extended(
-                        heroTag: null,
-                        onPressed: null,
-                        label: Text('Kids'),
-                        backgroundColor: _color[0],
-                      ),
-                    ),
-                    Container(
-                      width: 90,
-                      child: FloatingActionButton.extended(
-                        heroTag: null,
-                        onPressed: null,
-                        label: Text('Small'),
-                        backgroundColor: _color[1],
-                      ),
-                    ),
-                    Container(
-                      width: 90,
-                      child: FloatingActionButton.extended(
-                        heroTag: null,
-                        onPressed: null,
-                        label: Text('Medium'),
-                        backgroundColor: _color[2],
-                      ),
-                    ),
-                    Container(
-                      width: 90,
-                      child: FloatingActionButton.extended(
-                        heroTag: null,
-                        onPressed: null,
-                        label: Text('Large'),
-                        backgroundColor: _color[3],
-                      ),
-                    ),
+                    ToggleButtonItem(_title[0], _color[0]),
+                    ToggleButtonItem(_title[1], _color[1]),
+                    ToggleButtonItem(_title[2], _color[2]),
+                    ToggleButtonItem(_title[3], _color[3]),
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
                     setState(() {
-                      _isSelected = [false, false, false, false];
+                      _isSelected = List.generate(
+                        i,
+                        (_) => false,
+                      );
                       _isSelected[index] = !_isSelected[index];
-                      _color = [
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0.5),
-                        Colors.white.withOpacity(0.5)
-                      ];
+                      _color = List.generate(
+                        i,
+                        (_) => Colors.white.withOpacity(0.5),
+                      );
                       _color[index] = Theme.of(context).accentColor;
                     });
                   },
@@ -88,8 +59,6 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                   borderWidth: 0,
                   elevation: 0,
                   unselectedFillColor: Theme.of(context).primaryColor)
-
-              // endregion
             ],
           ),
         ),
