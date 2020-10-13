@@ -1,5 +1,7 @@
+import 'package:VSB/providers/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
+import 'package:provider/provider.dart';
 import 'toggle_button_item.dart';
 
 class MyToggleButton extends StatefulWidget {
@@ -17,8 +19,13 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   List<Color> _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
   List<String> _title = ["Kids", "Small", "Medium", "FuckOff"];
 
+  void _setSize(BuildContext context, int index) {
+    Provider.of<Counter>(context, listen: false).setSize(index);
+  }
+
   @override
   Widget build(BuildContext context) {
+    IceSize _size = Provider.of<Counter>(context).getSize;
     return Row(
       children: [
         Container(
@@ -36,6 +43,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
+                    _setSize(context, index);
                     setState(() {
                       _isSelected = List.generate(
                         i,

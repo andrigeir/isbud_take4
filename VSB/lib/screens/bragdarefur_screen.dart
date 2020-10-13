@@ -1,3 +1,4 @@
+import 'package:VSB/widgets/counter_widget.dart';
 import 'package:VSB/widgets/product_image_widget.dart';
 import 'package:VSB/widgets/togglebutton.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,6 @@ class BragdarefurScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
-    IceSize _size = IceSize.kids;
-    List<bool> selection = List.generate(4, (_) => false);
-
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
@@ -29,6 +27,7 @@ class BragdarefurScreen extends StatelessWidget {
             ),
             ProductImage(loadedProduct.imageUrl),
             MyToggleButton(),
+            CounterWidget()
           ],
         ),
       ),
