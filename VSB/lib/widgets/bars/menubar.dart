@@ -1,9 +1,3 @@
-import '../screens/user_products_screen.dart';
-import '../screens/products_overview_screen.dart';
-import '../screens/cart_screen.dart';
-import '../screens/edit_product_screen.dart';
-import '../screens/orders_screen.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +8,13 @@ class MenuBar extends StatefulWidget {
 
 class _MenuBarState extends State<MenuBar> {
   int _currentIndex = 1;
-  List<String> _pages = <String>[
-    CartScreen.routeName,
-    ProductsOverviewScreen.routeName,
-    OrdersScreen.routeName,
-    UserProductsScreen.routeName,
-    EditProductScreen.routeName,
-  ];
+  // List<String> _pages = <String>[
+  //   CartScreen.routeName,
+  //   ProductsOverviewScreen.routeName,
+  //   OrdersScreen.routeName,
+  //   UserProductsScreen.routeName,
+  //   EditProductScreen.routeName,
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +34,11 @@ class _MenuBarState extends State<MenuBar> {
           title: new Text('Profile'),
         )
       ],
-      onTap: (index) {
-        setState(() {
-          _currentIndex = index;
-          Navigator.of(context).pushNamed(_pages[index]);
-        });
-      },
+      // onTap: (index) {
+      //   setState(() {
+      //     _currentIndex = index;
+      //     Navigator.of(context).pushNamed(_pages[index]);
+      //   });},
     );
   }
 }
