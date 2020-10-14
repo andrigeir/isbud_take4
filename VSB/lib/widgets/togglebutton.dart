@@ -1,3 +1,4 @@
+import 'package:VSB/providers/bragdarefur.dart';
 import 'package:VSB/providers/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
@@ -17,7 +18,11 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   static int i = 4;
   List<bool> _isSelected = List.generate(i, (_) => false);
   List<Color> _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
-  List<String> _title = ["Kids", "Small", "Medium", "Large"];
+  List<String> _title = ["Kids", "Small", "Medium", "Big"];
+
+  void _setPrice(BuildContext context, String key) {
+    Provider.of<Bragdarefur>(context, listen: false).setPrice(key);
+  }
 
   void _setSize(BuildContext context, int index) {
     Provider.of<Counter>(context, listen: false).setSize(index);
@@ -25,6 +30,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
 
   @override
   Widget build(BuildContext context) {
+    double _price = Provider.of<Bragdarefur>(context).getPrice;
     IceSize _size = Provider.of<Counter>(context).getSize;
     return Row(
       children: [
@@ -43,7 +49,6 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                   ],
                   isSelected: _isSelected,
                   onPressed: (int index) {
-                    _setSize(context, index);
                     setState(() {
                       _isSelected = List.generate(
                         i,
@@ -55,6 +60,8 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                         (_) => Colors.white.withOpacity(0.5),
                       );
                       _color[index] = Theme.of(context).accentColor;
+                      _setPrice(context, _title[index]);
+                      _setSize(context, index);
                     });
                   },
                   borderColor: Theme.of(context).primaryColor,

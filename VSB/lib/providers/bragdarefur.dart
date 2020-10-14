@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 import '../providers/product.dart';
 
@@ -25,8 +27,12 @@ class Bragdarefur extends Product {
             price: price,
             imageUrl: imageUrl);
 
-  @override
-  double get getPrice {
-    return this.price;
+  void setPrice(String key) {
+    double extra = 0;
+    // if (nammi.length < 3) {
+    //   extra = 140.00;
+    // }
+    price = size[key] + extra;
+    notifyListeners();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:VSB/providers/counter.dart';
+import 'package:VSB/widgets/counter_widget.dart';
 import 'package:VSB/widgets/product_image_widget.dart';
 import 'package:VSB/widgets/togglebutton.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,6 @@ class BragdarefurScreen extends StatelessWidget {
     var _size = Provider.of<Counter>(context).getSize;
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
-    IceSize _size = IceSize.kids;
-    List<bool> selection = List.generate(4, (_) => false);
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -35,10 +34,11 @@ class BragdarefurScreen extends StatelessWidget {
               child: Text('Please choose size'),
             ),
             MyToggleButton(),
+            CounterWidget(),
             Center(
               child: Text(
                 '$_size',
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headline2,
               ),
             ),
           ],
