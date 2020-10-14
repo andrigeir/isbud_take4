@@ -17,7 +17,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   static int i = 4;
   List<bool> _isSelected = List.generate(i, (_) => false);
   List<Color> _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
-  List<String> _title = ["Kids", "Small", "Medium", "FuckOff"];
+  List<String> _title = ["Kids", "Small", "Medium", "Large"];
 
   void _setSize(BuildContext context, int index) {
     Provider.of<Counter>(context, listen: false).setSize(index);
