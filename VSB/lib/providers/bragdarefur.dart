@@ -19,7 +19,7 @@ class Bragdarefur extends Product {
     description,
     price,
     imageUrl,
-    this.nammi,
+    @required this.nammi,
   }) : super(
             id: id,
             title: title,
@@ -27,11 +27,11 @@ class Bragdarefur extends Product {
             price: price,
             imageUrl: imageUrl);
 
-  void setPrice(String key) {
+  void setPrice(String key, List<String> nammi) {
     double extra = 0;
-    // if (nammi.length < 3) {
-    //   extra = 140.00;
-    // }
+    if (nammi.length > 3) {
+      extra = 140.00;
+    }
     price = size[key] + extra;
     notifyListeners();
   }

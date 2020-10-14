@@ -20,8 +20,8 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   List<Color> _color = List.generate(i, (_) => Colors.white.withOpacity(0.5));
   List<String> _title = ["Kids", "Small", "Medium", "Big"];
 
-  void _setPrice(BuildContext context, String key) {
-    Provider.of<Bragdarefur>(context, listen: false).setPrice(key);
+  void _setPrice(BuildContext context, String key, List<String> nammi) {
+    Provider.of<Bragdarefur>(context, listen: false).setPrice(key, nammi);
   }
 
   void _setSize(BuildContext context, int index) {
@@ -60,7 +60,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                         (_) => Colors.white.withOpacity(0.5),
                       );
                       _color[index] = Theme.of(context).accentColor;
-                      _setPrice(context, _title[index]);
+                      _setPrice(context, _title[index], ["b", "c", "c", "d"]);
                       _setSize(context, index);
                     });
                   },

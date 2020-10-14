@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CounterWidget extends StatelessWidget {
-  void _setPrice(BuildContext context, key) {
-    Provider.of<Bragdarefur>(context, listen: true).setPrice(key);
+  void _setPrice(BuildContext context, key, nammi) {
+    Provider.of<Bragdarefur>(context, listen: true).setPrice(key, nammi);
   }
 
   @override
