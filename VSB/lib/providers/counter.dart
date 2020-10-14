@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Counter extends ChangeNotifier {
   var _counter = 0;
   IceSize _size = IceSize.kids;
+  IceType _icetype = IceType.gamli;
 
   int get getCounter {
     return _counter;
@@ -10,6 +11,10 @@ class Counter extends ChangeNotifier {
 
   IceSize get getSize {
     return _size;
+  }
+
+  IceType get getIceType {
+    return _icetype;
   }
 
   void setSize(int index) {
@@ -25,6 +30,17 @@ class Counter extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setIceType(int index) {
+    if (index == 0) {
+      _icetype = IceType.gamli;
+    } else if (index == 1) {
+      _icetype = IceType.nyi;
+    } else if (index == 2) {
+      _icetype = IceType.vegan;
+    }
+    notifyListeners();
+  }
+
   void setCounter() {
     _counter = 6;
     notifyListeners();
@@ -32,3 +48,9 @@ class Counter extends ChangeNotifier {
 }
 
 enum IceSize { kids, small, medium, large }
+
+enum IceType {
+  gamli,
+  nyi,
+  vegan,
+}

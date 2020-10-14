@@ -1,5 +1,4 @@
 import 'package:VSB/providers/counter.dart';
-import 'package:VSB/widgets/counter_widget.dart';
 
 import './theme/appTheme.dart';
 import 'package:flutter/material.dart';
