@@ -1,5 +1,4 @@
 import 'package:VSB/providers/bragdarefur.dart';
-import 'package:VSB/widgets/product_image_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'product.dart';

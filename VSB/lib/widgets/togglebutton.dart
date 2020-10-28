@@ -1,4 +1,4 @@
-import 'package:VSB/providers/bragdarefur.dart';
+import '../providers/bragdarefur.dart';
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 import 'package:provider/provider.dart';
@@ -59,7 +59,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                         (_) => Colors.white.withOpacity(0.5),
                       );
                       _color[index] = Theme.of(context).accentColor;
-                      _setPrice(context, _title[index], ["b", "c", "c", "d"]);
+                      _setPrice(context, _title[index], ["b", "c", "c"]);
                       _setSize(context, index);
                     });
                   },

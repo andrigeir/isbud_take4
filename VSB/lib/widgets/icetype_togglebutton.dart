@@ -27,43 +27,42 @@ class _MyIceToggleButtonState extends State<MyIceToggleButton> {
         Container(
           height: 75,
           width: MediaQuery.of(context).size.width,
-          child: Center(
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              physics: ClampingScrollPhysics(),
-              children: [
-                CustomToggleButtons(
-                    children: <Widget>[
-                      for (int a = 0; a < _color.length; a++)
-                        ToggleButtonItem(_title[a], _color[a]),
-                    ],
-                    isSelected: _isSelected,
-                    onPressed: (int index) {
-                      setState(() {
-                        _isSelected = List.generate(
-                          i,
-                          (_) => false,
-                        );
-                        _isSelected[index] = !_isSelected[index];
-                        _color = List.generate(
-                          i,
-                          (_) => Colors.white.withOpacity(0.5),
-                        );
-                        _color[index] = Theme.of(context).accentColor;
-                        _setIceType(context, index);
-                      });
-                    },
-                    borderColor: Theme.of(context).primaryColor,
-                    selectedColor: Theme.of(context).primaryColor,
-                    color: Theme.of(context).primaryColor,
-                    selectedBorderColor: Theme.of(context).primaryColor,
-                    spacing: 10,
-                    borderWidth: 0,
-                    elevation: 0,
-                    unselectedFillColor: Theme.of(context).primaryColor)
-              ],
-            ),
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
+            children: [
+              CustomToggleButtons(
+                  children: <Widget>[
+                    for (int a = 0; a < _color.length; a++)
+                      ToggleButtonItem(_title[a], _color[a]),
+                  ],
+                  isSelected: _isSelected,
+                  onPressed: (int index) {
+                    setState(() {
+                      _isSelected = List.generate(
+                        i,
+                        (_) => false,
+                      );
+                      _isSelected[index] = !_isSelected[index];
+                      _color = List.generate(
+                        i,
+                        (_) => Colors.white.withOpacity(0.5),
+                      );
+                      _color[index] = Theme.of(context).accentColor;
+                      _setIceType(context, index);
+                    });
+                  },
+                  borderColor: Theme.of(context).primaryColor,
+                  selectedColor: Theme.of(context).primaryColor,
+                  color: Theme.of(context).primaryColor,
+                  selectedBorderColor: Theme.of(context).primaryColor,
+                  spacing: 10,
+                  borderWidth: 0,
+                  elevation: 0,
+                  unselectedFillColor: Theme.of(context).primaryColor)
+            ],
           ),
         ),
       ],

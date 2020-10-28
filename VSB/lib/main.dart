@@ -4,7 +4,6 @@ import './theme/appTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './theme/appTheme.dart';
 import './screens/bragdarefur_screen.dart';
 import 'screens/product_overview.dart';
 import './providers/products.dart';

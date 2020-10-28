@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:provider/provider.dart';
-
 import '../providers/product.dart';
 
 class Bragdarefur extends Product {
-  List<String> nammi;
+  List<String> _nammi = [];
   Map<String, double> size = {
     "Kids": 1000.00,
     "Small": 1250.00,
@@ -22,7 +18,7 @@ class Bragdarefur extends Product {
     price,
     iceType,
     imageUrl,
-    @required this.nammi,
+    nammi,
   }) : super(
             id: id,
             title: title,
@@ -30,9 +26,9 @@ class Bragdarefur extends Product {
             price: price,
             imageUrl: imageUrl);
 
-  void setPrice(String key, List<String> nammi) {
+  void setPrice(String key, List<String> _nammi) {
     double extra = 0;
-    if (nammi.length > 3) {
+    if (_nammi.length > 3) {
       extra = 140.00;
     }
     price = size[key] + extra;
@@ -45,6 +41,22 @@ class Bragdarefur extends Product {
 
   IceType get getIceType {
     return _icetype;
+  }
+
+  List<String> get getNammi {
+    return _nammi;
+  }
+
+  void addNammi(String nammiString) {
+    if (_nammi.length < 4) {
+      _nammi.add(nammiString);
+      notifyListeners();
+    }
+  }
+
+  void removeNammi(String nammiString) {
+    _nammi.remove(nammiString);
+    notifyListeners();
   }
 
   void setSize(int index) {
