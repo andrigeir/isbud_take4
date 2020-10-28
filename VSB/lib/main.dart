@@ -1,5 +1,4 @@
 import 'package:VSB/providers/bragdarefur.dart';
-import 'package:VSB/providers/counter.dart';
 
 import './theme/appTheme.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +21,6 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: Products()),
         ChangeNotifierProvider.value(value: Bragdarefur()),
-        ChangeNotifierProvider.value(value: Counter()),
       ],
       child: MaterialApp(
           title: 'Flutter Demo',

@@ -1,5 +1,5 @@
-import 'package:VSB/providers/counter.dart';
-import 'package:VSB/widgets/counter_widget.dart';
+import 'package:VSB/providers/bragdarefur.dart';
+
 import 'package:VSB/widgets/product_image_widget.dart';
 import 'package:VSB/widgets/togglebutton.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +8,17 @@ import 'package:provider/provider.dart';
 import '../widgets/bars/topbar.dart';
 import '../widgets/bars/back_appbar.dart';
 import '../providers/products.dart';
-import '../providers/counter.dart';
+import '../widgets/icetype_togglebutton.dart';
 
 class BragdarefurScreen extends StatelessWidget {
   static const routeName = '/bragdarefur';
 
   @override
   Widget build(BuildContext context) {
-    var _size = Provider.of<Counter>(context).getSize;
+    var _size = Provider.of<Bragdarefur>(context).getSize;
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
-
+    final _iceType = Provider.of<Bragdarefur>(context).getIceType;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
@@ -34,10 +34,19 @@ class BragdarefurScreen extends StatelessWidget {
               child: Text('Please choose size'),
             ),
             MyToggleButton(),
-            CounterWidget(),
+            Center(
+              child: Text('Please Choose type of Icecream'),
+            ),
+            MyIceToggleButton(),
             Center(
               child: Text(
                 '$_size',
+                style: Theme.of(context).textTheme.headline2,
+              ),
+            ),
+            Center(
+              child: Text(
+                '$_iceType',
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),

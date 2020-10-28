@@ -12,12 +12,15 @@ class Bragdarefur extends Product {
     "Medium": 1500,
     "Big": 1800,
   };
+  IceSize _size = IceSize.kids;
+  IceType _icetype = IceType.gamli;
 
   Bragdarefur({
     id,
     title,
     description,
     price,
+    iceType,
     imageUrl,
     @required this.nammi,
   }) : super(
@@ -35,4 +38,48 @@ class Bragdarefur extends Product {
     price = size[key] + extra;
     notifyListeners();
   }
+
+  IceSize get getSize {
+    return _size;
+  }
+
+  IceType get getIceType {
+    return _icetype;
+  }
+
+  void setSize(int index) {
+    if (index == 0) {
+      _size = IceSize.kids;
+    } else if (index == 1) {
+      _size = IceSize.small;
+    } else if (index == 2) {
+      _size = IceSize.medium;
+    } else if (index == 3) {
+      _size = IceSize.large;
+    }
+    notifyListeners();
+  }
+
+  void setIceType(int index) {
+    if (index == 0) {
+      _icetype = IceType.gamli;
+    } else if (index == 1) {
+      _icetype = IceType.nyi;
+    } else if (index == 2) {
+      _icetype = IceType.vegan;
+    }
+    notifyListeners();
+  }
+}
+
+enum IceSize {
+  kids,
+  small,
+  medium,
+  large,
+}
+enum IceType {
+  gamli,
+  nyi,
+  vegan,
 }

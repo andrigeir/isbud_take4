@@ -1,5 +1,4 @@
 import 'package:VSB/providers/bragdarefur.dart';
-import 'package:VSB/providers/counter.dart';
 import 'package:flutter/material.dart';
 import 'package:customtogglebuttons/customtogglebuttons.dart';
 import 'package:provider/provider.dart';
@@ -25,13 +24,13 @@ class _MyToggleButtonState extends State<MyToggleButton> {
   }
 
   void _setSize(BuildContext context, int index) {
-    Provider.of<Counter>(context, listen: false).setSize(index);
+    Provider.of<Bragdarefur>(context, listen: false).setSize(index);
   }
 
   @override
   Widget build(BuildContext context) {
     double _price = Provider.of<Bragdarefur>(context).getPrice;
-    IceSize _size = Provider.of<Counter>(context).getSize;
+    IceSize _size = Provider.of<Bragdarefur>(context).getSize;
     return Row(
       children: [
         Container(
