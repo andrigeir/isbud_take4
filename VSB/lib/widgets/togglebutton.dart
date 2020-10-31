@@ -29,7 +29,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
 
   @override
   Widget build(BuildContext context) {
-    double _price = Provider.of<Bragdarefur>(context).getPrice;
+    int _price = Provider.of<Bragdarefur>(context).getPrice;
     IceSize _size = Provider.of<Bragdarefur>(context).getSize;
     return Row(
       children: [
@@ -59,7 +59,7 @@ class _MyToggleButtonState extends State<MyToggleButton> {
                         (_) => Colors.white.withOpacity(0.5),
                       );
                       _color[index] = Theme.of(context).accentColor;
-                      _setPrice(context, _title[index], ["b", "c", "c"]);
+                      _setPrice(context, _title[index], []);
                       _setSize(context, index);
                     });
                   },

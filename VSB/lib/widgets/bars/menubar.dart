@@ -1,5 +1,10 @@
+import 'package:VSB/providers/bragdarefur.dart';
+import 'package:VSB/screens/product_overview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../screens/cart_screen.dart';
+import '../../screens/bragdarefur_screen.dart';
 
 class MenuBar extends StatefulWidget {
   @override
@@ -7,15 +12,11 @@ class MenuBar extends StatefulWidget {
 }
 
 class _MenuBarState extends State<MenuBar> {
+  List<String> _pages = <String>[
+    CartScreen.routeName,
+    ProductOverviewScreen.routeName,
+  ];
   int _currentIndex = 1;
-  // List<String> _pages = <String>[
-  //   CartScreen.routeName,
-  //   ProductsOverviewScreen.routeName,
-  //   OrdersScreen.routeName,
-  //   UserProductsScreen.routeName,
-  //   EditProductScreen.routeName,
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -34,11 +35,12 @@ class _MenuBarState extends State<MenuBar> {
           title: new Text('Profile'),
         )
       ],
-      // onTap: (index) {
-      //   setState(() {
-      //     _currentIndex = index;
-      //     Navigator.of(context).pushNamed(_pages[index]);
-      //   });},
+      onTap: (index) {
+        setState(() {
+          _currentIndex = index;
+          Navigator.of(context).pushReplacementNamed(_pages[index]);
+        });
+      },
     );
   }
 }

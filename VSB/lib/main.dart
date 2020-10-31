@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import './screens/bragdarefur_screen.dart';
-import 'screens/product_overview.dart';
+import './screens/product_overview.dart';
 import './providers/products.dart';
+import './providers/cart.dart';
+import './screens/cart_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,15 +22,17 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: Products()),
         ChangeNotifierProvider.value(value: Bragdarefur()),
+        ChangeNotifierProvider.value(value: Cart()),
       ],
       child: MaterialApp(
           title: 'Flutter Demo',
           theme: appTheme(),
           home: ProductOverviewScreen(),
-          //home: BragdarefurScreen(),
-
+          //home: CartScreen(),
           routes: {
             BragdarefurScreen.routeName: (ctx) => BragdarefurScreen(),
+            CartScreen.routeName: (ctx) => CartScreen(),
+            ProductOverviewScreen.routeName: (ctx) => ProductOverviewScreen(),
           }),
     );
   }
