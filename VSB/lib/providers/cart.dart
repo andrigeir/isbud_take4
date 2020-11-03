@@ -6,18 +6,18 @@ class CartItem {
   String title;
   IceType iceType;
   IceSize size;
-  int quantity = 1;
+  int quantity;
   int price;
   List<String> nammi;
 
   CartItem({
-    @required String id,
-    @required String title,
-    @required IceType iceType,
-    @required IceSize size,
-    @required int price,
-    int quantity,
-    @required List<String> nammi,
+    @required this.id,
+    @required this.title,
+    @required this.iceType,
+    @required this.size,
+    @required this.price,
+    @required this.quantity,
+    @required this.nammi,
   });
 }
 
@@ -28,8 +28,23 @@ class Cart with ChangeNotifier {
     return {..._items};
   }
 
-  void addItem(String id, String title, IceType iceType, IceSize size,
-      int quantity, int price, List<String> nammi) {
+  int get totalAmount {
+    var total = 0;
+    _items.forEach((key, cartItem) {
+      total = cartItem.price * cartItem.quantity;
+    });
+    return total;
+  }
+
+  void addItem(
+    String id,
+    String title,
+    IceType iceType,
+    IceSize size,
+    int quantity,
+    int price,
+    List<String> nammi,
+  ) {
     if (_items.containsKey('$id${size.toString()}$price${nammi.join()}') &&
         _items.length > 0) {
       _items.update(

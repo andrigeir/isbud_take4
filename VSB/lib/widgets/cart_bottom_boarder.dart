@@ -70,10 +70,14 @@ class _CartBottomBorderState extends State<CartBottomBorder> {
                     widget.loadedProduct.title,
                     _iceType,
                     _size,
-                    _price,
                     _quantity,
+                    _price,
                     _nammi);
-                print(cart.items.toString());
+                cart.items.values.last.nammi.forEach((element) {
+                  print(element);
+                });
+
+                print(_nammi);
                 //print(cart.items[0].quantity.toString());
               })
         ]),
