@@ -1,10 +1,7 @@
-import 'package:VSB/providers/bragdarefur.dart';
-
 import 'package:VSB/widgets/product_image_widget.dart';
 import 'package:VSB/widgets/togglebutton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:VSB/providers/cart.dart';
 
 import '../widgets/bars/topbar.dart';
 import '../widgets/bars/back_appbar.dart';
@@ -18,15 +15,8 @@ class BragdarefurScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final bragdarefur = Provider.of<Bragdarefur>(context);
-    final _size = Provider.of<Bragdarefur>(context).getSize;
     final passedId = ModalRoute.of(context).settings.arguments;
     final loadedProduct = Provider.of<Products>(context).findById(passedId);
-    final _iceType = Provider.of<Bragdarefur>(context).getIceType;
-    final _price = Provider.of<Bragdarefur>(context).getPrice;
-    final _nammi = Provider.of<Bragdarefur>(context).getNammi;
-    final cart = Provider.of<Cart>(context);
-    final int _quantity = 1;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: TopBar(),
@@ -39,24 +29,33 @@ class BragdarefurScreen extends StatelessWidget {
                 padding: EdgeInsets.all(5),
               ),
               ProductImage(loadedProduct.imageUrl),
-              Center(
-                child: Text('Please choose size'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text(
+                    'Please choose size',
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                ),
               ),
               MyToggleButton(),
               Center(
-                child: Text('Please Choose type of Icecream'),
+                child: Text(
+                  'Please Choose type of Icecream',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
               ),
               MyIceToggleButton(),
               Center(
                 child: Text(
-                  '$_size, $_iceType $_price',
-                  style: Theme.of(context).textTheme.bodyText2,
+                  'Please choose 3x candy',
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               ),
-              Center(
-                child: Text('Please Choose 3x candy, $_nammi'),
-              ),
               NammiToggleButton(),
+              Padding(
+                padding: EdgeInsets.all(30),
+              )
             ],
           ),
         ),

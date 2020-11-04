@@ -24,7 +24,8 @@ class Bragdarefur extends Product {
             title: title,
             description: description,
             price: price,
-            imageUrl: imageUrl);
+            imageUrl: imageUrl,
+            nammi: nammi);
 
   void setPrice(String key, List<String> _nammi) {
     int extra = 0;
@@ -56,6 +57,13 @@ class Bragdarefur extends Product {
 
   void removeNammi(String nammiString) {
     _nammi.remove(nammiString);
+    notifyListeners();
+  }
+
+  void resetAll() {
+    _size = IceSize.kids;
+    _icetype = IceType.gamli;
+    _nammi = [];
     notifyListeners();
   }
 

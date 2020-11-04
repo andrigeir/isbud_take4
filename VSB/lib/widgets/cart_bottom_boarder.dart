@@ -21,7 +21,7 @@ class _CartBottomBorderState extends State<CartBottomBorder> {
     //int _quantity = 1;
     final _iceType = Provider.of<Bragdarefur>(context).getIceType;
     final _price = Provider.of<Bragdarefur>(context).getPrice;
-    final _nammi = Provider.of<Bragdarefur>(context).getNammi;
+    final _nammi = Provider.of<Bragdarefur>(context, listen: false).getNammi;
     final _size = Provider.of<Bragdarefur>(context).getSize;
 
     return Padding(
@@ -72,13 +72,7 @@ class _CartBottomBorderState extends State<CartBottomBorder> {
                     _size,
                     _quantity,
                     _price,
-                    _nammi);
-                cart.items.values.last.nammi.forEach((element) {
-                  print(element);
-                });
-
-                print(_nammi);
-                //print(cart.items[0].quantity.toString());
+                    new List.from(_nammi));
               })
         ]),
         decoration: BoxDecoration(

@@ -1,5 +1,6 @@
-import 'package:VSB/providers/bragdarefur.dart';
+import '../../providers/bragdarefur.dart';
 import 'package:VSB/screens/product_overview.dart';
+import 'package:VSB/screens/user_profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class _MenuBarState extends State<MenuBar> {
   List<String> _pages = <String>[
     CartScreen.routeName,
     ProductOverviewScreen.routeName,
+    UserProfile.routeName,
   ];
   int _currentIndex = 1;
   @override
