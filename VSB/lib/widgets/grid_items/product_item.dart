@@ -1,6 +1,7 @@
 import 'package:VSB/screens/bragdarefur_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../providers/bragdarefur.dart';
 
 import '../../providers/product.dart';
 
@@ -17,8 +18,9 @@ class ProductItem extends StatelessWidget {
               BragdarefurScreen.routeName,
               arguments: product.id,
             );
+            Provider.of<Bragdarefur>(context, listen: false).resetAll();
           },
-          child: Image.network(
+          child: Image.asset(
             product.imageUrl,
             fit: BoxFit.cover,
           ),

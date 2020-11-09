@@ -4,7 +4,7 @@ abstract class Product with ChangeNotifier {
   final String id;
   final String title;
   final String description;
-  double price;
+  int price;
   final String imageUrl;
 
   Product({
@@ -13,9 +13,10 @@ abstract class Product with ChangeNotifier {
     @required this.description,
     @required this.price,
     @required this.imageUrl,
+    nammi,
   });
 
-  double get getPrice {
+  int get getPrice {
     return price;
   }
 }

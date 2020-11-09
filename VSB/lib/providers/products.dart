@@ -7,39 +7,35 @@ class Products with ChangeNotifier {
   List<Product> _items = [
     Bragdarefur(
       id: 'p1',
-      title: 'Red Shirt',
-      description: 'A red shirt - it is pretty red!',
-      price: 29.99,
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      nammi: ["Strawberry", "Mars", "Snickers"],
+      title: 'Bragðarefur',
+      description: 'Bragðarefur',
+      price: 29,
+      imageUrl: 'assets/images/bragdarebbi.jpg',
+      nammi: [],
     ),
     Bragdarefur(
-      id: 'p1',
-      title: 'Red Shirt',
-      description: 'A red shirt - it is pretty red!',
-      price: 29.99,
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      nammi: ["Strawberry", "Mars", "Snickers"],
+      id: 'p2',
+      title: 'Ís í brauði',
+      description: 'Ís í brauði',
+      price: 29,
+      imageUrl: 'assets/images/isibraudi.jpg',
+      nammi: [],
     ),
     Bragdarefur(
-      id: 'p1',
-      title: 'Red Shirt',
+      id: 'p3',
+      title: 'Ís í boxi',
       description: 'A red shirt - it is pretty red!',
-      price: 29.99,
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      nammi: ["Strawberry", "Mars", "Snickers"],
+      price: 29,
+      imageUrl: 'assets/images/isiboxi.jpg',
+      nammi: [],
     ),
     Bragdarefur(
-      id: 'p1',
-      title: 'Red Shirt',
+      id: 'p4',
+      title: 'Shake',
       description: 'A red shirt - it is pretty red!',
-      price: 29.99,
-      imageUrl:
-          'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg',
-      nammi: ["Strawberry", "Mars", "Snickers"],
+      price: 29,
+      imageUrl: 'assets/images/shake.jpg',
+      nammi: [],
     ),
   ];
 
@@ -49,5 +45,9 @@ class Products with ChangeNotifier {
 
   Product findById(String id) {
     return _items.firstWhere((prod) => prod.id == id);
+  }
+
+  String findImgById(String id) {
+    return _items.firstWhere((prod) => prod.id == id).imageUrl;
   }
 }

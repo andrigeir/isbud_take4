@@ -2,9 +2,9 @@ import '../providers/product.dart';
 
 class Bragdarefur extends Product {
   List<String> _nammi = [];
-  Map<String, double> size = {
-    "Kids": 1000.00,
-    "Small": 1250.00,
+  Map<String, int> size = {
+    "Kids": 1000,
+    "Small": 1250,
     "Medium": 1500,
     "Big": 1800,
   };
@@ -24,12 +24,13 @@ class Bragdarefur extends Product {
             title: title,
             description: description,
             price: price,
-            imageUrl: imageUrl);
+            imageUrl: imageUrl,
+            nammi: nammi);
 
   void setPrice(String key, List<String> _nammi) {
-    double extra = 0;
+    int extra = 0;
     if (_nammi.length > 3) {
-      extra = 140.00;
+      extra = 140;
     }
     price = size[key] + extra;
     notifyListeners();
@@ -56,6 +57,13 @@ class Bragdarefur extends Product {
 
   void removeNammi(String nammiString) {
     _nammi.remove(nammiString);
+    notifyListeners();
+  }
+
+  void resetAll() {
+    _size = IceSize.kids;
+    _icetype = IceType.gamli;
+    _nammi = [];
     notifyListeners();
   }
 
